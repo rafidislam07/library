@@ -1,0 +1,57 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    background-color: brown;
+}
+
+.heading {
+    font-family: "Teko";
+    text-align: center;
+    font-size: 4em;
+    margin-bottom: 0.1px;
+}
+
+.heading-2 {
+    font-family: "Teko";
+    text-align: center;
+    font-size: 2em;
+    margin-top: 0.1px;
+}
+
+div.card {
+    margin: 20px;
+    height: 200px;
+    width: 200px;
+    border: 1px solid black;
+}
+
+.add-book-div {
+    text-align: center;
+}
+
+.add-book {
+    background-color: rgb(119, 14, 14);
+    height: 40px;
+    width: 150px;
+    border-radius: 20px;
+    border-color: rgb(155, 29, 60);
+    color: white;
+}
+
+#book-container {
+    display: flex;
+}
+
+.book-card {
+    margin: 20px;
+    padding: 20px;
+    height: 200px;
+    width: 200px;
+    background-color: rgb(156, 134, 100);
+    border-radius: 10px;
+}
+
