@@ -10,7 +10,7 @@ const booksModule = (function() {
     let el, modal, openModalBtn, addBookModalBtn, booksDisplay, cancelBtn;
         const cacheDom = () => {
         el = document.getElementById("booksModule");
-        modal = document.getElementById("add-book-modal");
+        modal = el.querySelector("#add-book-modal");
         openModalBtn = el.querySelector("#openModalBtn");
         addBookModalBtn = el.querySelector(".addBookModalBtn");
         booksDisplay = el.querySelector("#booksDisplay");
