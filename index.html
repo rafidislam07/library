@@ -6,8 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="books module">
+    <div id="booksModule">
         <h1>Books I'd Like to Finish</h1>
+
+        <!-- modal -->
         <button id="openModalBtn">Add a book</button>
         <dialog id="add-book-modal">
             <form id="add-book-form">
@@ -24,9 +26,11 @@
                     <option value="finished">Finished</option>
                 </select>
             </form>
-            <button id="add-book-button">Add</button>
+            <button class="add-book-button closeModalBtn">Add</button>
         </dialog>
-
+        <ul id="booksDisplay">
+            <!-- books info dynamically added here -->
+        </ul>
     </div>
 </body>
 <script src="script.js"></script>

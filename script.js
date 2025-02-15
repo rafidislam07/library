@@ -1,12 +1,53 @@
-const modal = document.getElementById("add-book-modal");
-const openModalBtn = document.getElementById("openModalBtn");
-const closeModalBtn = document.getElementById("add-book-button"); // Button to add book
-const bookListContainer = document.getElementById("book-container");
 
-openModalBtn.addEventListener("click", () => {
-    modal.showModal(); // Using the dialog's built-in showModal() method
+const booksModule = (function() {
+    function Book(title, author, pages, status) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.status = status;
+    }
+    let title, author, pages, status;
+    let books =  [];
+    let el, modal, openModalBtn, closeModalBtn, booksDisplay;
+        const cacheDom = () => {
+        el = document.getElementById("booksModule");
+        modal = document.getElementById("add-book-modal");
+        openModalBtn = el.querySelector("#openModalBtn");
+        closeModalBtn = el.querySelector(".closeModalBtn");
+        booksDisplay = el.querySelector("booksDisplay");
+    }
+    const bindEvents = () => {
+        openModalBtn.addEventListener("click", () => {
+            modal.showModal();
+        })
+        closeModalBtn.addEventListener("click", () => {
+            closeModal();
+        })
+    }
+    
+    function closeModal() {
+        title = el.querySelector("#title").value;
+        author = el.querySelector("#author").value;
+        pages = el.querySelector("#pages").value;
+        status = el.querySelector("#status").value;
+        books.push(new Book(title, author, pages, status));
+        modal.close();
+        console.log(books);
+    }
+
+    const init = () => {
+        cacheDom();
+        bindEvents();
+    }
+    return {
+        init
+    }
+
+})();
+
+document.addEventListener("DOMContentLoaded", () => {
+    booksModule.init();
 });
-
 
 
 
