@@ -1,42 +1,69 @@
+body {
+    background-color: #987474;  /* Light background for the page */
+}
 
+.booksModule {
+    text-align: center;  
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Center horizontally */
+    justify-content: flex-start;  /* Ensure content starts from the top */
+    height: auto; /* Allow content to grow */
+    max-height: 100vh;  /* Prevent going beyond the viewport */
+    overflow-y: auto;  /* Ensure scrolling happens if needed */
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* html, body {
-    margin: 0;
-    padding: 0;
+#booksDisplay {
+    display: flex;             /* Use flexbox for the container */
+    flex-wrap: wrap;           /* Allow cards to wrap to the next line when the screen is full */
+    justify-content: center;   /* Center the cards horizontally */
+    gap: 20px;                 /* Add spacing between the cards */
+    margin-top: 20px;          /* Optional: add margin to separate from the button */
 }
 
 
-body {
-    background-color: brown;
+.add-book {
+    background-color: rgb(119, 14, 14);
+    height: 40px;
+    width: 150px;
+    border-radius: 20px;
+    border-color: rgb(155, 29, 60);
+    color: white;
+    margin: 20px;
+}
+
+.book-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px;
+    width: 250px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.book-card h3 {
+    font-size: 1.5em;
+    color: #333;
+}
+
+.book-card p {
+    font-size: 1em;
+    color: #555;
+}
+
+.book-card .remove-btn {
+    background-color: rgb(119, 14, 14);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.book-card .remove-btn:hover {
+    background-color: rgb(155, 29, 60);
 }
 
 .heading {
@@ -52,37 +79,3 @@ body {
     font-size: 2em;
     margin-top: 0.1px;
 }
-
-div.card {
-    margin: 20px;
-    height: 200px;
-    width: 200px;
-    border: 1px solid black;
-}
-
-.add-book-div {
-    text-align: center;
-}
-
-.add-book {
-    background-color: rgb(119, 14, 14);
-    height: 40px;
-    width: 150px;
-    border-radius: 20px;
-    border-color: rgb(155, 29, 60);
-    color: white;
-}
-
-#book-container {
-    display: flex;
-}
-
-.book-card {
-    margin: 20px;
-    padding: 20px;
-    height: 200px;
-    width: 200px;
-    background-color: rgb(156, 134, 100);
-    border-radius: 10px;
-}
- */

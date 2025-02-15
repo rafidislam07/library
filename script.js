@@ -8,36 +8,72 @@ const booksModule = (function() {
     }
     let title, author, pages, status;
     let books =  [];
-    let el, modal, openModalBtn, closeModalBtn, booksDisplay;
+    let el, modal, openModalBtn, closeModalBtn, booksDisplay, ul;
         const cacheDom = () => {
         el = document.getElementById("booksModule");
         modal = document.getElementById("add-book-modal");
         openModalBtn = el.querySelector("#openModalBtn");
         closeModalBtn = el.querySelector(".closeModalBtn");
-        booksDisplay = el.querySelector("booksDisplay");
+        booksDisplay = el.querySelector("#booksDisplay");
     }
     const bindEvents = () => {
         openModalBtn.addEventListener("click", () => {
             modal.showModal();
         })
-        closeModalBtn.addEventListener("click", () => {
-            closeModal();
-        })
+        closeModalBtn.addEventListener("click", addBooks);
+        booksDisplay.addEventListener("click", deleteBook);
     }
+
+    const render = () => {
+        booksDisplay.innerHTML = ""; // Clear list before re-rendering
     
-    function closeModal() {
+        books.forEach((book, index) => {
+            // Create a new card div for each book
+            const bookCard = document.createElement("div");
+            bookCard.classList.add("book-card");
+    
+            // Add the book's details inside the card
+            bookCard.innerHTML = `
+                <h3>${book.title}</h3>
+                <p><strong>Author:</strong> ${book.author}</p>
+                <p><strong>Pages:</strong> ${book.pages}</p>
+                <p><strong>Status:</strong> ${book.status}</p>
+                <button class="remove-btn" data-index="${index}">Remove</button>
+            `;
+    
+            // Add the card to the books display area
+            booksDisplay.appendChild(bookCard);
+        });
+    };
+    
+    
+    function addBooks() {
         title = el.querySelector("#title").value;
         author = el.querySelector("#author").value;
         pages = el.querySelector("#pages").value;
         status = el.querySelector("#status").value;
         books.push(new Book(title, author, pages, status));
+        el.querySelector("#title").value = '';
+        el.querySelector("#author").value = '';
+        el.querySelector("#pages").value = '';
+        el.querySelector("#status").value = 'unread';
+        render(); 
         modal.close();
         console.log(books);
     }
 
+    const deleteBook = (event) => {
+        if (event.target.classList.contains('remove-btn')) {
+            const index = event.target.getAttribute('data-index');
+            books.splice(index, 1); // Remove from array
+            render(); // Re-render UI
+        }
+    };
+
     const init = () => {
         cacheDom();
         bindEvents();
+        render();
     }
     return {
         init
@@ -49,103 +85,3 @@ document.addEventListener("DOMContentLoaded", () => {
     booksModule.init();
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const modal = document.querySelector(".modal")
-// const openModal = document.querySelector(".open-button")
-// const closeModal = document.querySelector(".close-button")
-
-// openModal.addEventListener("click", () => {
-//     modal.showModal()
-// })
-
-// closeModal.addEventListener("click", () => {
-//     modal.close()
-// })
-
-
-// const myLibrary = []
-
-// function Book(title, author, pages, read) {
-//     this.title = title,
-//     this.author = author,
-//     this.pages = pages,
-//     this.read = read,
-//     this.info = function() {
-//         console.log(`${this.title} by ${this.author}, ${this.pages} `)
-//     }
-// }
-
-// function addBookToLibrary (myLibrary, book) {
-//     myLibrary.push(book)
-// }
-
-// const book1 = new Book ('The Lord of the Rings', 'J. R. R. Tolkien', 1077)
-// const book2 = new Book ('harrypotter', 'jk rowling', 69)
-
-// addBookToLibrary(myLibrary, book1)
-// addBookToLibrary(myLibrary, book2)
-
-// function loopThroughArray(myLibrary) {
-//     for (let i = 0; i < myLibrary.length; i++) {
-//         let element = myLibrary[i];
-//         console.log(element);
-//         element.info()
-//     }
-// }
-
-// loopThroughArray(myLibrary)
-
-// function displayBooks(myLibrary) {
-//     const container = document.getElementById("book-container")
-//     for (let i=0; i < myLibrary.length; i++) {
-//         let book = myLibrary[i];
-//         const bookCard = document.createElement("div")
-//         const bookTitle = document.createElement("h3")
-//         const bookAuthor = document.createElement("p")
-//         const bookPages = document.createElement("p")
-
-//         bookCard.classList.add("book-card")
-
-//         bookTitle.textContent = book.title
-//         bookAuthor.textContent = `Author: ${book.author}`
-//         bookPages.textContent = `Pages: ${book.pages}`
-
-//         bookCard.appendChild(bookTitle)
-//         bookCard.appendChild(bookAuthor)
-//         bookCard.appendChild(bookPages)
-//         container.appendChild(bookCard)
-//     }
-// }
-
-// displayBooks(myLibrary)

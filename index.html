@@ -3,14 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Jersey+10&family=Teko:wght@300..700&display=swap" rel="stylesheet">    
+
 </head>
 <body>
-    <div id="booksModule">
-        <h1>Books I'd Like to Finish</h1>
-
+    <div id="booksModule" class="booksModule">
+        <h1 class="heading">BILF</h1>
+        <h1 class="heading-2">Books I'd Like to Finish</h1>
         <!-- modal -->
-        <button id="openModalBtn">Add a book</button>
+        <button id="openModalBtn" class="add-book">Add a book</button>
         <dialog id="add-book-modal">
             <form id="add-book-form">
                 <label for="author">Author</label>
@@ -28,68 +33,12 @@
             </form>
             <button class="add-book-button closeModalBtn">Add</button>
         </dialog>
-        <ul id="booksDisplay">
-            <!-- books info dynamically added here -->
-        </ul>
+            <ul id="booksDisplay">
+                <!-- books info dynamically added here -->
+            </ul>
     </div>
 </body>
 <script src="script.js"></script>
 
 </html>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BILF</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Jersey+10&family=Teko:wght@300..700&display=swap" rel="stylesheet">
-</head>
-<body>
-
-    <h1 class="heading">BILF</h1>
-    <h1 class="heading-2">(Books I'd Like to Finish)</h1>
-
-    <div class="add-book-div"><button class="add-book open-button">Add a book</button></div>
-    <dialog class="modal">
-        <form class="form" method="dialog">
-            <label>Author <input type="text" required></label>
-            <label>Title <input type="text" required></label>
-            <label>Number of Pages <input type="number" required></label>
-            <label>Status <select name="" id=""></select></label>
-        </form>
-        <button class="add-book-xs close-button">Add</button>
-    </dialog>
-
-
-    <div id="book-container">
-    </div>
-</body>
-<script src="script.js"></script>
-</html> -->
