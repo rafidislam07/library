@@ -1,10 +1,10 @@
 
 const booksModule = (function() {
-    function Book(title, author, pages, status) {
+    function Book(title, author, pages, bookStatus) {
         this.title = title;
         this.author = author;
         this.pages = pages;
-        this.status = status;
+        this.bookStatus = bookStatus;
     }
     let books =  [];
     let el, modal, openModalBtn, addBookModalBtn, booksDisplay, cancelBtn;
@@ -40,7 +40,7 @@ const booksModule = (function() {
                 <h3>${book.title}</h3>
                 <p><strong>Author:</strong> ${book.author}</p>
                 <p><strong>Pages:</strong> ${book.pages}</p>
-                <p><strong>Status:</strong> ${book.status}</p>
+                <p><strong>Status:</strong> ${book.bookStatus}</p>
                 <button class="remove-btn" data-index="${index}">Remove</button>
             `;
     
@@ -54,8 +54,8 @@ const booksModule = (function() {
         title = el.querySelector("#title").value;
         author = el.querySelector("#author").value;
         pages = el.querySelector("#pages").value;
-        status = el.querySelector("#status").value;
-        books.push(new Book(title, author, pages, status));
+        bookStatus = el.querySelector("#status").value;
+        books.push(new Book(title, author, pages, bookStatus));
         el.querySelector("#title").value = '';
         el.querySelector("#author").value = '';
         el.querySelector("#pages").value = '';
