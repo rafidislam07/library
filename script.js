@@ -6,14 +6,13 @@ const booksModule = (function() {
         this.pages = pages;
         this.status = status;
     }
-    let title, author, pages, status;
     let books =  [];
-    let el, modal, openModalBtn, closeModalBtn, booksDisplay, cancelBtn;
+    let el, modal, openModalBtn, addBookModalBtn, booksDisplay, cancelBtn;
         const cacheDom = () => {
         el = document.getElementById("booksModule");
         modal = document.getElementById("add-book-modal");
         openModalBtn = el.querySelector("#openModalBtn");
-        closeModalBtn = el.querySelector(".closeModalBtn");
+        addBookModalBtn = el.querySelector(".addBookModalBtn");
         booksDisplay = el.querySelector("#booksDisplay");
         cancelBtn = el.querySelector("#cancelBtn"); // Get the cancel button
     }
@@ -21,7 +20,7 @@ const booksModule = (function() {
         openModalBtn.addEventListener("click", () => {
             modal.showModal();
         })
-        closeModalBtn.addEventListener("click", addBooks);
+        addBookModalBtn.addEventListener("click", addBooks);
         booksDisplay.addEventListener("click", deleteBook);
         cancelBtn.addEventListener("click", () => {
             modal.close(); // Close the modal
